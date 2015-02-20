@@ -281,6 +281,23 @@ class matrix(device):
             self._buffer[-1] = value
             self.flush()
 
+    def str(self, text, font=CP437_FONT)
+        """
+        Print a string to the display, cutting off if too long
+        """
+        src = (value for asciiCode in text for value in font[ord(asciiCode)])
+        # remove any repeated zeros
+        s2 = []
+        for val in src:
+            if (val != 0 or s2[-1] != 0):
+                s2.append(val)
+        n0 = len(_buffer) 
+        n1 = len(s2)
+        if (n0 > n1):
+            s2.extend([0]*(n0 - n1))
+        _buffer = s2[:n0]
+        self.flush()
+
     def pixel(self, x, y, value, redraw=True):
         """
         Sets (value = 1) or clears (value = 0) the pixel at the given
